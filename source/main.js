@@ -44,8 +44,7 @@ Theme_4.active();
 
 const styles = Styles.createClass({
     page: {
-        backgroundColor: ThemeColor('primary'),
-        overflow: 'hidden'
+        backgroundColor: ThemeColor('primary')
     },
     h1: {
         margin: '10px',
@@ -66,7 +65,7 @@ const styles = Styles.createClass({
     }
 });
 
-Styles.hover(styles.button, {
+Styles.createHover(styles.button, {
     backgroundColor: 'black',
     outline: '2px solid white',
 });

@@ -61,7 +61,6 @@ body>#root>.page {
 
 .style-3 {
     background-color: var(--primary);
-    overflow: hidden;
 }
 
 .style-4 {
@@ -83,13 +82,13 @@ body>#root>.page {
     cursor: pointer;
 }
 
-.style-5:hover {
-    background-color: black;
-    outline: 2px solid white;
-}
-
 .style-0:hover {
     background-color: var(--second);
     scale: 1.05;
     outline: none;
+}
+
+.style-5:hover {
+    background-color: black;
+    outline: 2px solid white;
 }

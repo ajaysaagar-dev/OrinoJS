@@ -23,7 +23,7 @@ const styles = Styles.createClass({
     }
 });
 
-Styles.hover(styles.div, {
+Styles.createHover(styles.div, {
     backgroundColor: ThemeColor('second'),
     scale: '1.05',
     outline: 'none'

@@ -37,7 +37,7 @@ const __Styles = {
 
         return CLASSES_RAW;
     },
-    hover: (styleClass: string, styles: CSS_PROPERTIES) => {
+    createHover: (styleClass: string, styles: CSS_PROPERTIES) => {
 
         const data = convert_json_to_css_hover(styleClass, styles);
         RuntimeCSS(data);
