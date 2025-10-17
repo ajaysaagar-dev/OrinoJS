@@ -12,5 +12,5 @@ export default function RuntimeCSS(styles: string, init: boolean = false) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ styles, init })
-    })
+    });
 }

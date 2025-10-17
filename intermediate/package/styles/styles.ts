@@ -31,7 +31,8 @@ const __Styles = {
 
         const [CSS, CLASSES_RAW] = convert_json_to_css_create_class(styles);
         if (!UniqueStyles.has(JSON.stringify(CLASSES_RAW))) {
-            RuntimeCSS(String(CSS));
+            if (window.location.origin === 'http://localhost:5173')
+                RuntimeCSS(String(CSS));
             UniqueStyles.add(JSON.stringify(CLASSES_RAW));
         }
 
@@ -40,7 +41,8 @@ const __Styles = {
     createHover: (styleClass: string, styles: CSS_PROPERTIES) => {
 
         const data = convert_json_to_css_hover(styleClass, styles);
-        RuntimeCSS(data);
+        if (window.location.origin === 'http://localhost:5173')
+            RuntimeCSS(data);
     }
 }
 
