@@ -59,6 +59,12 @@ body>#root>.page {
     width: 100%;
 }
 
+.style-0:hover {
+    background-color: var(--second);
+    scale: 1.05;
+    outline: none;
+}
+
 .style-3 {
     background-color: var(--primary);
 }
@@ -80,12 +86,6 @@ body>#root>.page {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.style-0:hover {
-    background-color: var(--second);
-    scale: 1.05;
-    outline: none;
 }
 
 .style-5:hover {

@@ -39,7 +39,8 @@ async function BUILD() {
             stringArrayEncoding: ['base64'],
             stringArrayIndexShift: true,
             ignoreImports: true,
-            numbersToExpressions: true
+            numbersToExpressions: true,
+            log: true
         });
         FSEXTRA.writeFileSync('./dist/index.js', indexJS._obfuscatedCode, 'utf-8');
 
