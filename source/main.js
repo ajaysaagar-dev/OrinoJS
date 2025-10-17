@@ -1,6 +1,6 @@
 
 
-import { ID, Logics, Page, Styles, Theme, ThemeColor } from 'orino';
+import { html, ID, Logics, Page, Styles, Theme, ThemeColor } from 'orino';
 import Card from './components/Card';
 
 export const Theme_1 = new Theme();
@@ -66,63 +66,48 @@ const styles = Styles.createClass({
     }
 });
 
+Styles.hover(styles.button, {
+    backgroundColor: 'black',
+    outline: '2px solid white',
+});
+
 const SamplePage = new Page('Sample Page');
 
 SamplePage.style(styles.page);
 
 const id = ID();
 
-let index = 1;
+let index = Math.floor(Math.random() * 5) + 1;
 
 Logics(() => {
-    setInterval(() => {
-        switch (index) {
-            case 1:
-                Theme_1.active();
-                break;
-            case 2:
-                Theme_2.active();
-                break;
-            case 3:
-                Theme_3.active();
-                break;
-            case 4:
-                Theme_4.active();
-                break;
-            case 5:
-                Theme_5.active();
-                break;
-        }
-        index++;
-        if (index > 5) index = 1;
-    }, 1000);
+    ChangeTheme();
+    document.getElementById(id).addEventListener('click', ChangeTheme);
 });
 
-Logics(() => {
-    document.getElementById(id).addEventListener('click', () => {
-        switch (index) {
-            case 1:
-                Theme_1.active();
-                break;
-            case 2:
-                Theme_2.active();
-                break;
-            case 3:
-                Theme_3.active();
-                break;
-            case 4:
-                Theme_4.active();
-                break;
-            case 5:
-                Theme_5.active();
-                break;
-        }
-        index++;
-        if (index > 5) index = 1;
-    });
-});
+function ChangeTheme() {
+    switch (index) {
+        case 1:
+            Theme_1.active();
+            break;
+        case 2:
+            Theme_2.active();
+            break;
+        case 3:
+            Theme_3.active();
+            break;
+        case 4:
+            Theme_4.active();
+            break;
+        case 5:
+            Theme_5.active();
+            break;
+    }
+    index++;
+    if (index > 5) index = 1;
+}
 
-SamplePage.add(/*html*/`
+
+SamplePage.add(html`
     <h1 class='${styles.h1}'>Home</h1>
     <div>
         ${Card('Image 1', 'https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg')}

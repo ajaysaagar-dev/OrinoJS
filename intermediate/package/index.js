@@ -21,3 +21,6 @@ export const Logics = (function_logics) => __Logic(function_logics);
 // THEME
 export const Theme = __Theme;
 export const ThemeColor = (name) => __ThemeColor(name);
+
+// HTML
+export const html = (strings, ...values) => String.raw(strings, ...values);

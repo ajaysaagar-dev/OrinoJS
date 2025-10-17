@@ -1,4 +1,4 @@
-import { Styles, ThemeColor } from "orino";
+import { html, Styles, ThemeColor } from "orino";
 
 
 const styles = Styles.createClass({
@@ -21,13 +21,21 @@ const styles = Styles.createClass({
     image: {
         width: '100%'
     }
+});
+
+Styles.hover(styles.div, {
+    backgroundColor: ThemeColor('second'),
+    scale: '1.05',
+    outline: 'none'
 })
 
 export default function Card(name, url) {
-    return (/*html*/`
+    return (html`
         <div class='${styles.div}'>
             <p class='${styles.p}'>${name}</p>
             <img class='${styles.image}' src="${url}" alt="">
         </div>
+        <input type="text">
+        <h1>Hello World</h1>
     `);
 }

@@ -1,6 +1,6 @@
 import StylesID from "../id/styles-id";
 
-export default function ConvertJsonToCSS(styles = Object()) {
+export function convert_json_to_css_create_class(styles = Object()) {
 
     // MINUS ADDED
     for (const index_1 in styles) {
@@ -26,6 +26,28 @@ export default function ConvertJsonToCSS(styles = Object()) {
     }
     return [CSS, CLASSES_RAW];
 }
+
+export function convert_json_to_css_hover(styleClass: string, styles = Object()) {
+
+    // MINUS ADDED
+    let temp: Record<string, any> = {};
+    for (const index_1 in styles) {
+        temp[AddMinusPlusLowercase(index_1)] = styles[index_1];
+    }
+
+    styles = temp;
+
+    // MAKE CSS
+    let CSS = '';
+
+    CSS += '\n\n.' + styleClass.trim() + ':hover' + ' {\n';
+    for (const indexL1 in styles) {
+        CSS += '    ' + indexL1 + ': ' + styles[indexL1] + ';\n';
+    }
+    CSS += '}';
+    return CSS;
+}
+
 
 function AddMinusPlusLowercase(string = String()) {
     let data = string.split('');

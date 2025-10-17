@@ -82,3 +82,14 @@ body>#root>.page {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.style-5:hover {
+    background-color: black;
+    outline: 2px solid white;
+}
+
+.style-0:hover {
+    background-color: var(--second);
+    scale: 1.05;
+    outline: none;
+}
