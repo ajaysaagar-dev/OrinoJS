@@ -6,9 +6,10 @@ export default class __Page {
 
     // GLOBAL VARs
     pageName = 'OrinoJS';
+    #orinoId = OrinoID();
 
     // PRIVATE VARs
-    #pageElement = <HTMLElement>null!;
+    #pageElement: HTMLElement = null!;
 
     constructor(pageName = String()) {
         // SET  
@@ -24,7 +25,7 @@ export default class __Page {
         div.classList.add('page'); // CLASS NAME
         div.classList.add(String(this.pageName).toLowerCase().replaceAll(' ', '-')); // CLASS NAME
         div.classList.add('nv'); // CLASS NAME
-        div.setAttribute('orino-id', OrinoID());
+        div.setAttribute('orino-id', this.#orinoId);
         this.#pageElement = div; // SET CLASS GLOBAL PAGE EL
         root.appendChild(div); // APPEND
     }
@@ -33,6 +34,10 @@ export default class __Page {
         const div = document.createElement('div'); // CREATE DIV
         div.innerHTML = html; // INNER HTML
         this.#pageElement.appendChild(div); // APPEND
+    }
+
+    style(style: string) {
+        document.getElementById(this.#pageElement.id)?.classList.add(style.trim());
     }
 
     active() {

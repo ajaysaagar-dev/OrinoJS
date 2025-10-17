@@ -1,0 +1,10 @@
+{
+    "CLASS": {
+        "prefix": "class='${}'",
+        "body": "class='${${1:}}'"
+    },
+    "ID": {
+        "prefix": "id='${}'",
+        "body": "id='${${1:}}'"
+    }
+}

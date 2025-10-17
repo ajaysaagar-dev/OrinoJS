@@ -8,13 +8,23 @@ const PATH = require('path');
 
 async function BUILD() {
 
+    console.log('orino -> configuring...');
+
     setTimeout(() => {
+
+        // CREATE DIST
         FSEXTRA.mkdirSync('./dist', { recursive: true });
 
         // BUILD HTML
+        console.log('orino -> building html...');
         FSEXTRA.copyFileSync('./intermediate/templates/index.html', './dist/index.html');
 
+        // BUILD CSS
+        console.log('orino -> building css...');
+        FSEXTRA.copyFileSync('./public/index.css', './dist/index.css');
+
         // BUILD JS
+        console.log('orino -> building javascript...');
         ESBUILD.buildSync({
             entryPoints: ['./source/main.js'],
             bundle: true,
@@ -31,12 +41,11 @@ async function BUILD() {
             ignoreImports: true,
             numbersToExpressions: true
         });
-        console.log(indexJS._obfuscatedCode);
         FSEXTRA.writeFileSync('./dist/index.js', indexJS._obfuscatedCode, 'utf-8');
 
-        // BUILD CSS
-        FSEXTRA.copyFileSync('./public/index.css', './dist/index.css');
-    }, 2000);
+        console.log('orino -> build complete...');
+
+    }, 1000);
 
 }
 
