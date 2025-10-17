@@ -1,0 +1,36 @@
+{
+  "name": "orinojs",
+  "version": "0.0.1",
+  "description": "Framework",
+  "keywords": [
+    "orinojs",
+    "orino"
+  ],
+  "homepage": "https://github.com/ajaysaagar-dev/OrinoJS#readme",
+  "bugs": {
+    "url": "https://github.com/ajaysaagar-dev/OrinoJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaysaagar-dev/OrinoJS.git"
+  },
+  "license": "ISC",
+  "author": "ajaysaagar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./intermediate/serve/dev-start.js",
+    "dist": "node ./intermediate/builder/build.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "fs-extra": "^11.3.2",
+    "javascript-obfuscator": "^4.1.1",
+    "open": "^10.2.0",
+    "vite": "^7.1.9"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.11"
+  }
+}

@@ -1,0 +1,38 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background: #1e1e1e;
+    overflow: hidden;
+}
+
+body * {
+    color: white;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    float: left;
+}
+
+body>#root {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #1e1e1e;
+    position: absolute;
+}
+
+body>#root>.page {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    overflow: auto;
+}
+
+.nv {
+    display: none;
+}
