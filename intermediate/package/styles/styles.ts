@@ -1,8 +1,8 @@
 
 import { AspectRatio_Types, Color_Types, Display_Types, Normalized_Types, Numerical_Types } from './_types.ts';
-import { convert_json_to_css_create_class, convert_json_to_css_hover } from './converters.ts';
+import { convert_json_to_css_active, convert_json_to_css_create_class, convert_json_to_css_hover } from './styles-converters.ts';
 import RuntimeCSS from './runtime-css.ts';
-
+import OrinoEnvironment from '../init/init.js';
 // GLOBAL VARs
 let UniqueStyles = new Set();
 
@@ -28,10 +28,9 @@ type CSS_PROPERTIES = {
 
 const __Styles = {
     createClass: <T extends Record<string, CSS_PROPERTIES>>(styles: T) => {
-
         const [CSS, CLASSES_RAW] = convert_json_to_css_create_class(styles);
         if (!UniqueStyles.has(JSON.stringify(CLASSES_RAW))) {
-            if (window.location.origin === 'http://localhost:5173')
+            if (OrinoEnvironment.isLocalhost())
                 RuntimeCSS(String(CSS));
             UniqueStyles.add(JSON.stringify(CLASSES_RAW));
         }
@@ -39,9 +38,15 @@ const __Styles = {
         return CLASSES_RAW;
     },
     createHover: (styleClass: string, styles: CSS_PROPERTIES) => {
-
+        console.log(OrinoEnvironment.isLocalhost());
         const data = convert_json_to_css_hover(styleClass, styles);
-        if (window.location.origin === 'http://localhost:5173')
+        if (OrinoEnvironment.isLocalhost())
+            RuntimeCSS(data);
+    },
+    createActive: (styleClass: string, styles: CSS_PROPERTIES) => {
+
+        const data = convert_json_to_css_active(styleClass, styles);
+        if (OrinoEnvironment.isLocalhost())
             RuntimeCSS(data);
     }
 }

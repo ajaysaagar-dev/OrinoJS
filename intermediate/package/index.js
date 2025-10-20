@@ -2,6 +2,7 @@
 import __ID from "./id/id.ts";
 import __Logic from "./logic/logic.ts";
 import __Page from "./page/page.ts";
+import __ReactiveState from "./state/reactive-state.ts";
 import __Styles from "./styles/styles.ts";
 import __Theme from "./theme/theme.ts";
 import __ThemeColor from "./theme/use-theme-color.js";
@@ -17,6 +18,9 @@ export const ID = () => __ID();
 
 // LOGICS
 export const Logics = (function_logics) => __Logic(function_logics);
+
+// STATE
+export const ReactiveState = __ReactiveState;
 
 // THEME
 export const Theme = __Theme;
