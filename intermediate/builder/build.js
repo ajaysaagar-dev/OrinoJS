@@ -3,8 +3,8 @@ const ESBUILD = require('esbuild');
 const FSEXTRA = require('fs-extra');
 const JSOB = require('javascript-obfuscator');
 const OPEN = require('open');
+const { OrinoEnvironment } = require('orino/init/init');
 const PATH = require('path');
-
 
 async function BUILD() {
 
@@ -30,6 +30,7 @@ async function BUILD() {
             bundle: true,
             platform: 'browser',
             outfile: './dist/index.js',
+            logLevel: false
         });
         let indexJS = FSEXTRA.readFileSync('./dist/index.js', 'utf-8');
         indexJS = JSOB.obfuscate(indexJS, {
@@ -40,7 +41,7 @@ async function BUILD() {
             stringArrayIndexShift: true,
             ignoreImports: true,
             numbersToExpressions: true,
-            log: true
+            log: false,
         });
         FSEXTRA.writeFileSync('./dist/index.js', indexJS._obfuscatedCode, 'utf-8');
 

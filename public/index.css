@@ -39,6 +39,8 @@ body>#root>.page {
 
 .style-0 {
     font-size: 8rem;
+    border-top-left-radius: 50px;
+    font-family: Aladin;
 }
 
 .style-1 {

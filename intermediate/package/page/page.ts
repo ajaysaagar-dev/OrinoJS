@@ -1,4 +1,5 @@
 import OrinoID from "../id/orino-id.ts";
+import { InitOrinoJS } from "../init/init.js";
 
 const root = document.querySelector<HTMLElement>('body > #root')!;
 
@@ -16,6 +17,7 @@ export default class __Page {
         this.pageName = pageName;
         // INIT
         this.#init();
+        InitOrinoJS();
     }
 
     #init() {
@@ -44,6 +46,7 @@ export default class __Page {
         document.querySelectorAll('body > #root > .page').forEach(page => { page.classList.add('nv') }); // NOT VISIBLE OTHER PAGES
         document.title = this.pageName; // SET TITLE
         this.#pageElement.classList.remove('nv'); // MAKE VISIBLE
+        // SET LOCATION (SPA)
     }
 
 }
