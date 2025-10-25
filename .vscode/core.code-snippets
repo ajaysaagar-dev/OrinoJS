@@ -2,5 +2,13 @@
     "PASS FUNCTION": {
         "prefix": "${}",
         "body": "${${1:}}"
+    },
+    "HTML": {
+        "prefix": "html``",
+        "body": [
+            "html`",
+            "   ${1:<div></div>}",
+            "`"
+        ]
     }
 }

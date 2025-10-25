@@ -6,5 +6,9 @@
     "ID": {
         "prefix": "id='${}'",
         "body": "id='${${1:}}'"
+    },
+    "SRC": {
+        "prefix": "src=''",
+        "body": "src='${source('${1:path}')}'"
     }
 }

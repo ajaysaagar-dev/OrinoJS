@@ -1,15 +1,15 @@
 
+let init = false;
 
-const OrinoEnvironment = {
+const __OrinoEnvironment = {
     isLocalhost: () => window.location.host.includes('localhost'),
     internalLogs: (enable = Boolean()) => window.orinoJSInternalLogs = enable
 };
 
 function InitOrinoJS() {
-
-    // SPA URL FIX
-    if (window.location.pathname.startsWith('/public/'))
-        window.history.pushState({}, '', '../');
+    if (!init)
+        console.log('OrinoJS > Initialized > OrinoJS Environment');
+    init = true;
 }
 
-export { OrinoEnvironment, InitOrinoJS };
+export { __OrinoEnvironment, InitOrinoJS };

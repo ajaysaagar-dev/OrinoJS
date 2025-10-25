@@ -20,7 +20,10 @@ export function convert_json_to_css_create_class(styles = Object()) {
         CLASSES_RAW[index] = ' ' + styleID;
         CSS += '\n\n.' + styleID + ' {\n';
         for (const indexL1 in styles[index]) {
+            if (typeof (styles[index][indexL1]) === 'number')
+                styles[index][indexL1] = styles[index][indexL1] + 'px';
             CSS += '    ' + indexL1 + ': ' + styles[index][indexL1] + ';\n';
+            console.log();
         }
         CSS += '}';
     }
